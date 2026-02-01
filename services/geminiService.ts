@@ -1,24 +1,19 @@
 
-import { GoogleGenAI } from "@google/genai";
-
 export class GeminiService {
-  private ai: GoogleGenAI;
-
-  constructor() {
-    this.ai = new GoogleGenAI({ apiKey: process.env.API_KEY || '' });
-  }
+  constructor() { }
 
   async getPlantingAdvice(plantName: string): Promise<string> {
-    try {
-      const response = await this.ai.models.generateContent({
-        model: 'gemini-3-flash-preview',
-        contents: `Berikan tips singkat dan praktis dalam bahasa Indonesia untuk menanam dan merawat ${plantName}. Fokus pada penyiraman, sinar matahari, dan pemupukan. Gunakan format poin-poin.`,
-      });
-      return response.text || "Maaf, asisten AI sedang sibuk. Silakan coba lagi nanti.";
-    } catch (error) {
-      console.error("Gemini API Error:", error);
-      return "Gagal mendapatkan saran tanam. Periksa koneksi internet Anda.";
-    }
+    // Simulate network delay
+    await new Promise(resolve => setTimeout(resolve, 1500));
+
+    return `Berikut adalah tips menanam untuk ${plantName}:
+    
+1. **Penyiraman**: Lakukan penyiraman secukupnya setiap pagi dan sore hari. Pastikan tanah tetap lembab namun tidak tergenang air untuk mencegah pembusukan akar.
+2. **Sinar Matahari**: Tempatkan tanaman di lokasi yang mendapatkan sinar matahari langsung minimal 6 jam sehari. Jika tanaman terlihat layu di siang hari yang terik, berikan naungan sementara.
+3. **Pemupukan**: Berikan pupuk organik cair atau kompos setiap 2 minggu sekali untuk menunjang pertumbuhan vegetatif.
+4. **Perawatan**: Periksa secara rutin adanya hama seperti kutu daun. Pangkas daun yang menguning atau kering untuk menjaga kesehatan tanaman.
+
+(Saran ini digenerate secara otomatis untuk mode offline)`;
   }
 }
 
