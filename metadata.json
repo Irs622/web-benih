@@ -1,0 +1,8 @@
+{
+  "name": "SemaiBenih - Seed Marketplace & Exhibition",
+  "description": "A professional digital platform for botanical seed exhibitions and e-commerce, featuring high-quality agricultural products, educational resources, and sustainable farming insights.",
+  "requestFramePermissions": [
+    "camera",
+    "geolocation"
+  ]
+}
